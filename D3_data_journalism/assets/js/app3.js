@@ -92,9 +92,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     .attr("r", "15")
     .attr("fill", "seagreen")
     .attr("opacity", ".5")
-    .attr("stroke-width", "2")
-    .attr("stroke", "purple");
-    // .text(record => record.abbr)
+    .text(record => record.abbr)
     ;
 
     chartGroup.select("g")
@@ -105,12 +103,20 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     .text(record => record.abbr)
     .attr("x", record => xLinearScale(record.income))
     .attr("y", record => yLinearScale(record.smokes))
-    // .attr("dy",-395)
-    .attr("dy",-415)
+    .attr("dy",-395)
     .attr("text-anchor", "middle")
     .attr("font-size", "12px")
-    .attr("fill", "black")
-    .attr("font-weight", "bold");
+    .attr("fill", "black");
+    console.log(circlesGroup);
+
+    // var states = healthData.forEach(function(record) {
+    //   record.income = +record.income;
+    //   record.smokes = +record.smokes;
+    // });
+    // svg.selectAll("text")
+    //   .data()
+
+
 
     // Initialize tool tip
     // .d3-tip

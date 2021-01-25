@@ -26,18 +26,13 @@ var chartGroup = svg.append("g")
 
 // Import Data
 d3.csv("assets/data/data.csv").then(function(healthData) {
+
+
     // Parse Data/Cast as numbers. I selected smoking as a function of income 
     healthData.forEach(function(record) {
       record.income = +record.income;
       record.smokes = +record.smokes;
-      record.abbr = record.abbr;
-      // console.log(record.abbr);
     });
-
-// var income = d3.csv("assets/data/data.csv").then(function(healthData) {
-//   healthData.forEach(function(record) {
-//   record.abbr})};
-//     console.log(income)
 
   // define variables for chart limits based on data needs. 
   var xMin = d3.min(healthData, record => record.income - 2000)
@@ -91,26 +86,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     .attr("cy", record => yLinearScale(record.smokes))
     .attr("r", "15")
     .attr("fill", "seagreen")
-    .attr("opacity", ".5")
-    .attr("stroke-width", "2")
-    .attr("stroke", "purple");
-    // .text(record => record.abbr)
-    ;
-
-    chartGroup.select("g")
-    .selectAll("circle")
-    .data(healthData)
-    .enter()
-    .append("text")
-    .text(record => record.abbr)
-    .attr("x", record => xLinearScale(record.income))
-    .attr("y", record => yLinearScale(record.smokes))
-    // .attr("dy",-395)
-    .attr("dy",-415)
-    .attr("text-anchor", "middle")
-    .attr("font-size", "12px")
-    .attr("fill", "black")
-    .attr("font-weight", "bold");
+    .attr("opacity", ".5");
 
     // Initialize tool tip
     // .d3-tip
