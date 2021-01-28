@@ -36,7 +36,7 @@ Run the following code in live server to visualize the chart:
 https://github.com/KLacerda08/D3-Challenge/blob/main/D3_data_journalism/index.html
 
 ## Evaluation - Smoking vs. Income 
-![Title](images/chart.png
+![Title](images/chart.png)
 
 Data from the US Census Bureau provides for a multi-faceted evaluation of health risks and socioeconomic factors.  Based on the data, there is a correlation between smoking and income level:  the percentage of people who smoke decreases with increased income. The US Dept. of Labor reports that those educated with a "professional"  degree make more money (https://www.dol.gov/general/topic/wages/educational). Therefore, at first look, the correlation between smoking and income would seem to suggest that the "blue collar" population smokes more than the those who receive a more "formal" education. However, the data is presented per state, and it is not clear whether income has been normalized to account for cost of living index. For instance, compare the data for New Jersey to that of West Virginia: in NJ, approximately 15% of the population smokes, and the (presumably median) income is about $72,000. In WV, about 27% of the population smokes, and the median income is about $42,000. However, a person making $42K in WV may hold the same job as a person making $72K in NJ. To better understand what socioeconomic population is most affected by smoking, it may be helpful to add an evaluation of income normalized by a cost-of-living index factor.
 
