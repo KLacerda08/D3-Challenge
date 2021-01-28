@@ -55,7 +55,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
 
-    // Append Axes to the chart
+    // Append Axes to the chartgroup
     chartGroup.append("g")
       .attr("transform", `translate(0, ${height})`)
       .call(bottomAxis);
@@ -94,6 +94,20 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     .attr("fill", "black")
     .attr("font-weight", "bold");
 
+    // Create axis labels
+    chartGroup.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 5)
+      .attr("x", 0 - (height / 2))
+      .attr("dy", "1em")
+      .attr("class", "aText")
+      .text("% Who Smoke");
+
+    chartGroup.append("text")
+      .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
+      .attr("class", "aText")
+      .text("Income (USD");
+
     // Initialize tool tip
     var toolTip = d3.tip()
       .attr("class", ".d3-tip")
@@ -121,19 +135,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
         toolTip.hide(record);
       });
 
-    // Create axes labels
-    chartGroup.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left + 5)
-      .attr("x", 0 - (height / 2))
-      .attr("dy", "1em")
-      .attr("class", "aText")
-      .text("% Who Smoke");
 
-    chartGroup.append("text")
-      .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
-      .attr("class", "aText")
-      .text("Income (USD");
   }).catch(function(error) {
     console.log(error);
   });

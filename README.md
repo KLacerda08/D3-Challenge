@@ -5,7 +5,7 @@
 ## Table of contents
 * [Assignment](#assignment)
 * [Data Sources](#data_sources)
-* [Dashboard Design](#design)
+* [Data Visualization](#vis)
 * [Evaluation](#eval)
 * [References](#ref)
 
@@ -14,28 +14,32 @@ Use JavaScript with html, D3, scalable vector graphics (svg) to generate an inte
 
 
 ## Data Sources
-Style sheets and starter code were provided, as was a csv containing US Census Bureau data.  Original files can be found at the links below: 
+Style sheets were provided, as was a csv containing US Census Bureau data.  Original files can be found at the links below: 
 
-* Belly button bacteria data: https://github.com/KLacerda08/plotly-challenge/tree/main/Resources/samples.json
-* original data from: http://robdunnlab.com/projects/belly-button-biodiversity/ 
-* html: https://github.com/KLacerda08/plotly-challenge/tree/main/Resources/index.html
-* app.js file: https://github.com/KLacerda08/plotly-challenge/tree/main/Resources/static/js/app.js
+* U.S. Census Bureau and the Behavioral Risk Factor Surveillance System data: https://github.com/KLacerda08/D3-Challenge/tree/main/D3_data_journalism/assets/data
+* d3Style sheet: https://github.com/KLacerda08/D3-Challenge/blob/main/Resources/StarterCode/assets/css/d3Style.css
+* html style sheet: https://github.com/KLacerda08/D3-Challenge/blob/main/Resources/StarterCode/assets/css/style.css 
+* bootsrap style sheet: https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO
 
+## Data Visualization
+The index.html file contained the framework to store the data visualization, which was created using D3 and svg. The data series I selected for plotting included
+the percentace of the population who smokes (fieldname "smokes"), and the population income (fieldname "income").  The data visualization was coded in the app.js 
+file and included the following general steps:
+* Creation of the svg wrapper
+* Importing and parsing the data
+* Creating scale and axis functions based on the data ranges, and appending these to the svg chartgroup
+* Creating and appending the scatter plot markers (circles)
+* Creating and appending axes ticks to the svg chargroup
+* Creating and appending axis labels.  
+* Creating and appending tooltips with additional information as an interactive feature for the datapoint markers.  
 
-## Dashboard Design
-The index.html file contained the framework to store the dashboard, including a dropdown menu (to be populated), and html IDs where the bar plotand bubble plot could be tagged. Code was designed to first
-populate the dropdown menu, and then to build the plots. During development, a dummy patient index was utilized to test the code in the console log.  After completion, the dummy index was removed. Functions were 
-developed to build the bar and bubble plots, and the demographic data of the patient, utizing the following fields from the dataset:
-- sample_values
-- otu_ids
-- otu_labels 
+Run the following code in live server to visualize the chart: 
+https://github.com/KLacerda08/D3-Challenge/blob/main/D3_data_journalism/index.html
 
-To operate the dashboard, select the Test Subject ID from the dropdown menu.  The bubble plot shows all the microbial groups (operational taxonomic units or OTUs) for that patient; the markers are sized in relation to the count of the OTU present. The bar plot shows the top ten OTUs in the selected patient. In some cases, the patient did not have ten OTUs present, in which case fewer are shown. An example of the dashboard output is provide below.  
-(patient 1601).  
-![Title](images/plots.png)
+## Evaluation - Smoking vs. Income 
+![Title](images/chart.jpg)
 
-## Evaluation
-The data shows that certain OTUs, such as 944, 1795, and 2419 are common across many individuals in substantial concentrations.  Additional analysis could be performed with statistics to show which OTU(s) are most common across the population. 
+Data from the US Census Bureau provides for a multi-faceted evaluation of health risks and socioeconomic factors.  Based on the data, there is a correlation between smoking and income level:  the percentage of people who smoke decreases with increased income. The US Dept. of Labor reports that those educated with a "professional"  degree make more money (https://www.dol.gov/general/topic/wages/educational). Therefore, at first look, the correlation between smoking and income would seem to suggest that the "blue collar" population smokes more than the those who receive a more "formal" education. However, the data is presented per state, and it is not clear whether income has been normalized to account for cost of living index. For instance, compare the data for New Jersey to that of West Virginia: in NJ, approximately 15% of the population smokes, and the (presumably median) income is about $72,000. In WV, about 27% of the population smokes, and the median income is about $42,000. However, a person making $42K in WV may hold the same job as a person making $72K in NJ. To better understand what socioeconomic population is most affected by smoking, it may be helpful to add an evaluation of income normalized by a cost-of-living index factor.
 
 ## References
 Readme image source: 
